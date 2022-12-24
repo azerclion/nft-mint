@@ -1,7 +1,7 @@
 const myNft = artifacts.require("myNFT");
 
-module.exports = function(deployer) {
-  deployer.deploy(
+module.exports = async function(deployer) {
+  await deployer.deploy(
     myNft,
     "mynft",
     "symbol",
