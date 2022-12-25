@@ -75,13 +75,13 @@ function Home() {
         mint Button
       </MintButton>
       {myNft && <div>{myNft._address}</div>}
-      <button
+      {/* <button
         onClick={(e) => {
           tokenURI(1);
         }}
       >
         MINTEDURI
-      </button>
+      </button> */}
     </HomeContainer>
   );
 }
