@@ -54,10 +54,6 @@ function Home() {
         setLoading(false);
       });
   };
-  const tokenURI = async (id) => {
-    await myNft.methods.tokenURI(id);
-    console.log("reveal");
-  };
 
   return (
     <HomeContainer>
@@ -76,13 +72,6 @@ function Home() {
         mint Button
       </MintButton>
       {myNft && <div>{myNft._address}</div>}
-      {/* <button
-        onClick={(e) => {
-          tokenURI(1);
-        }}
-      >
-        MINTEDURI
-      </button> */}
     </HomeContainer>
   );
 }
