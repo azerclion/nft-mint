@@ -65,6 +65,7 @@ function Home() {
       <WalletButton onClick={walletHandler}>CONNECT WALLET</WalletButton>
       <div>{userAccount}</div>
       <div>메타뮤직 앨범을 위한 NFT 입니다.</div>
+      <div>민팅 가격은 0.01 goerli 입니다.</div>
       <LoadingSection>{Loading ? "PENDING..." : null}</LoadingSection>
       <MintButton
         onClick={(e) => {
