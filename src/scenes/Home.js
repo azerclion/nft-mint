@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Web3 from "web3";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 import nftContract from "../ABI/nft";
 
@@ -8,6 +8,7 @@ function Home() {
   const [web3, setWeb3] = useState();
   const [userAccount, setUserAccount] = useState();
   const [myNft, setMyNft] = useState();
+  const [Loading, setLoading] = useState(false);
 
   async function walletHandler() {
     try {
@@ -42,13 +43,45 @@ function Home() {
     }
   }, []);
 
+  const minting = async () => {
+    await myNft.methods
+      .mint()
+      .send({
+        value: web3.utils.toWei("0.01", "ether"),
+        from: userAccount,
+      })
+      .then(() => {
+        setLoading(false);
+      });
+  };
+  const tokenURI = async (id) => {
+    await myNft.methods.tokenURI(id);
+    console.log("reveal");
+  };
+
   return (
     <HomeContainer>
       <div>Home</div>
       <WalletButton onClick={walletHandler}>CONNECT WALLET</WalletButton>
       <div>{userAccount}</div>
-      <WalletButton>mint Button</WalletButton>
+      <div>메타뮤직 앨범을 위한 NFT 입니다.</div>
+      <LoadingSection>{Loading ? "PENDING..." : null}</LoadingSection>
+      <MintButton
+        onClick={(e) => {
+          minting();
+          setLoading(true);
+        }}
+      >
+        mint Button
+      </MintButton>
       {myNft && <div>{myNft._address}</div>}
+      <button
+        onClick={(e) => {
+          tokenURI(1);
+        }}
+      >
+        MINTEDURI
+      </button>
     </HomeContainer>
   );
 }
@@ -68,6 +101,23 @@ const WalletButton = styled.button`
   color: #baad98;
   background-color: #48617c;
   cursor: pointer;
+`;
+const MintButton = styled(WalletButton)`
+  color: white;
+  background-color: hotpink;
+`;
+const LoadingAnimation = keyframes`
+  from {
+    color: white;
+  }
+  to {
+    color: blue;
+  }
+`;
+const LoadingSection = styled.div`
+  color: black;
+  margin-bottom: 20px;
+  animation: ${LoadingAnimation} 1s linear infinite;
 `;
 
 export default Home;

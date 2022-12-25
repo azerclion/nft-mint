@@ -48,8 +48,42 @@ test.js
 ```
 
 ```
-❯ truffle migrate --network goerli
+❯ ganache-cli
+❯ truffle test
+Using network 'development'.
 
+
+Compiling your contracts...
+===========================
+> Everything is up to date, there is nothing to compile.
+
+
+  Contract: myNft
+    myNFT deployment
+      ✔ myNFT has a name
+      ✔ myNFT has a symbol
+      ✔ myNFT has a limit
+      ✔ myNFT has a price
+      ✔ myNFT has a interval (40ms)
+      ✔ myNFT has a lastId
+      ✔ myNFT has a notReveledNFTURI
+    myNFT functest
+      ✔ myNFT has a u_setPrice (146ms)
+      ✔ myNFT has a u_setPrice (329ms)
+      ✔ myNFT has a mint (204ms)
+      ✔ myNFT has a lastId
+      ✔ myNFT has a mint (189ms)
+      ✔ myNFT has a lastId
+      ✔ myNFT has a u_currentBalance
+      ✔ myNFT has a u_withdraw (87ms)
+      ✔ myNFT has a u_currentBalance
+
+
+  16 passing (2s)
+```
+
+```
+❯ truffle migrate --network goerli --reset
 Compiling your contracts...
 ===========================
 > Everything is up to date, there is nothing to compile.
@@ -65,31 +99,31 @@ Starting migrations...
 1_myNft_migrations.js
 =====================
 
-   Deploying 'myNFT'
+   Replacing 'myNFT'
    -----------------
-   > transaction hash:    0x60da7854795709d367f93c8cce0a0780f057fd26c10bf70c71e60e0c2d0a133f
-   > Blocks: 1            Seconds: 21
-   > contract address:    0x2e6A34Bd8eD77b165d998Df31Dd4Be8274dA3CC8
-   > block number:        8192693
-   > block timestamp:     1671892248
+   > transaction hash:    0x1ab6986dab2f23ab2b550a3c872015026595594545a722c4123122991263088b
+   > Blocks: 2            Seconds: 17
+   > contract address:    0xC64F09eaa254796C842e9B0EE1FB9B2AC02F4a7E
+   > block number:        8196180
+   > block timestamp:     1671944316
    > account:             0x56C53049a267d05578163706C3589D44061AD9A6
-   > balance:             32.595368220296297986
-   > gas used:            3634926 (0x3776ee)
-   > gas price:           2.500000043 gwei
+   > balance:             32.549931495114551026
+   > gas used:            3634986 (0x37772a)
+   > gas price:           2.500000011 gwei
    > value sent:          0 ETH
-   > total cost:          0.009087315156301818 ETH
+   > total cost:          0.009087465039984846 ETH
 
    Pausing for 2 confirmations...
 
    -------------------------------
-   > confirmation number: 1 (block: 8192694)
-   > confirmation number: 2 (block: 8192695)
+   > confirmation number: 1 (block: 8196181)
+   > confirmation number: 2 (block: 8196182)
    > Saving artifacts
    -------------------------------------
-   > Total cost:     0.009087315156301818 ETH
+   > Total cost:     0.009087465039984846 ETH
 
 Summary
 =======
 > Total deployments:   1
-> Final cost:          0.009087315156301818 ETH
+> Final cost:          0.009087465039984846 ETH
 ```

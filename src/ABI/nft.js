@@ -728,7 +728,7 @@ const abi = [
 const nftContract = (web3) => {
   return new web3.eth.Contract(
     abi,
-    "0x2e6A34Bd8eD77b165d998Df31Dd4Be8274dA3CC8"
+    "0xC64F09eaa254796C842e9B0EE1FB9B2AC02F4a7E"
   );
 };
 
