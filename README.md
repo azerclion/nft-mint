@@ -11,7 +11,8 @@ yarn add @openzeppelin/contracts
     // _symbol : 토큰의 심볼
     // _limit : NFT 최대 발행 개수 10
     // _interval : NFT 민트 간격 (봇이 독점 방지) 15
-    // _revelingBlock : 언제 NFT가 공개되는지 15
+    // _revelingBlock : 언제 NFT가 공개되는지 15,
+    // ***** 공개된 그림을 확인할려면 opensea에서 refresh metadata를 눌러야 합니다. ****
     // _notReveledNFTURI : 진짜 NFT를 공개 하기전의 그림의 메타데이터 즉 Cover.js URI
 ```
 
